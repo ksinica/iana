@@ -90,7 +90,7 @@ func parseCSV(r io.Reader) (ret []string, err error) {
 }
 
 func drainAndClose(resp *http.Response) {
-	io.Copy(io.Discard, resp.Body)
+	_, _ = io.Copy(io.Discard, resp.Body)
 	resp.Body.Close()
 }
 
